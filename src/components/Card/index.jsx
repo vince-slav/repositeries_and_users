@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function Card(props) {
-
+    const name = props.repos.name;
+    
     return (
         <div class="col-md-4">
             <div className="card">
@@ -9,7 +10,7 @@ export function Card(props) {
                     Repository informations
                 </div>
                 <div className="card-body">
-                    <p className="card-text">Title:</p>
+                    <p className="card-text">Title: {name}</p>
                     <p className="card-text">stars:</p>
                     <p className="card-text">forks:</p>
                     <p className="card-text">description:</p>
