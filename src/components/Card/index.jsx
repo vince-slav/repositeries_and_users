@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-export function Card({ repos }) {
+export function Card({ repo }) {
 
     return (
         <div>
@@ -11,7 +11,7 @@ export function Card({ repos }) {
                         Repository informations
                     </div>
                     <div className="card-body">
-                        <p className="card-text">Title: </p>
+                        <p className="card-text">Title: {repo.name}</p>
                         <p className="card-text">stars:</p>
                         <p className="card-text">forks:</p>
                         <p className="card-text">description:</p>

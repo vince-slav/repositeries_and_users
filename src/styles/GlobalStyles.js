@@ -53,6 +53,7 @@ footer {
 }
 
 footer p {
+  margin-top: .25rem;
   margin-bottom: .25rem;
 }
 
