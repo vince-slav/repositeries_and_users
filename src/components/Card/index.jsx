@@ -1,11 +1,15 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
+import './style.css';
 
 export function Card({ repo }) {
 
+    const [favRepos, setFavRepos] = useState([]);
+    
+
     return (
         <div>
-            <div className="col-md-4">
+            <div className="col-md-4 card-repo">
                 <div className="card">
                     <div className="card-header text-center text-primary font-weight-bold">
                         Repository informations
@@ -17,7 +21,10 @@ export function Card({ repo }) {
                         <p className="card-text">description:</p>
                     </div>
                     <div className="card-footer text-left">
-                        <a href="#" className="btn btn-primary"><span className="fa-solid fa-thumbs-up"></span></a>
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Mark as favorite
+                        </label>
                     </div>
                 </div>
             </div>

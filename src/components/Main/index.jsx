@@ -10,7 +10,8 @@ export function Main() {
 
     function searchRepos() {
         console.log(user);
-        if(user != null){axios.get(`https://api.github.com/users/${user}/repos`)
+        if (user != null) {
+            axios.get(`https://api.github.com/users/${user}/repos`)
             .then((res) => {
                 const dataRepos = res.data;
                 setRepos(dataRepos);
@@ -18,8 +19,8 @@ export function Main() {
         }
     }
 
-    function handleUser(event){
-        this.setUser({value: event.target.value})
+    function handleUser(event) {
+        this.setUser({ value: event.target.value })
     }
 
     return (
@@ -28,9 +29,9 @@ export function Main() {
                 <section className="jumbotron text-center">
                     <div className="container">
                         <div className="input-group mb-3">
-                            <input type="text" readOnly={false} className="form-control" placeholder="Enter the username" value={user} onChange={this.handleUser}/>
+                            <input type="text" readOnly={false} className="form-control" placeholder="Enter the username" value={user} onChange={(e) => setUser(e.target.value)} />
                             <div className="input-group-append">
-                                <button className="btn btn-primary" onClick={this.searchRepos} type="button">search repositories</button>
+                                <button className="btn btn-primary" onClick={searchRepos} type="button">search repositories</button>
                             </div>
                         </div>
                     </div>
@@ -42,13 +43,23 @@ export function Main() {
                             <div>
                                 <h1 className='text-center text-primary mt-0'>Results for: {user}</h1>
                                 {repos.map((repo) => {
-                                    <Card key={repo.id} repos={repo} />
+                                    return <Card key={repo.id} repo={repo} />
                                 })}
                             </div>
                         )}
                     </div>
                 </div>
             </main>
+            <footer className="text-muted">
+                <div className="container">
+                    <p className="float-right">
+                        <a href="#">Back to top</a>
+                    </p>
+                    <p>Repositories: {repos.length}</p>
+                    <p>Favorites Repositories: </p>
+
+                </div>
+            </footer>
         </div>
     )
 }
