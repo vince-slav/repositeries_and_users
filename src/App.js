@@ -2,17 +2,13 @@ import React from 'react';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 
-export function App() {
-  
-
+export default function App() {
   return (
-    <React.Fragment>
+    <div>
       <Header />
       <Main />
-    </React.Fragment>
-
+    </div>
   );
-
 }
 
-export default App;
+
