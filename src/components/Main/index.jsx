@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Card } from '../Card';
 import axios from 'axios';
+import { Modal } from '../Modal';
 
 export function Main() {
 
@@ -12,10 +13,10 @@ export function Main() {
         console.log(user);
         if (user != null) {
             axios.get(`https://api.github.com/users/${user}/repos`)
-            .then((res) => {
-                const dataRepos = res.data;
-                setRepos(dataRepos);
-            });
+                .then((res) => {
+                    const dataRepos = res.data;
+                    setRepos(dataRepos);
+                });
         }
     }
 
@@ -50,16 +51,19 @@ export function Main() {
                     </div>
                 </div>
             </main>
-            <footer className="text-muted">
-                <div className="container">
-                    <p className="float-right">
-                        <a href="#">Back to top</a>
-                    </p>
-                    <p>Repositories: {repos.length}</p>
-                    <p>Favorites Repositories: </p>
+            {repos.length > 0 && (
+                <footer className="text-muted">
+                    <div className="container">
+                        <p className="float-right">
+                            <a href="#">Back to top</a>
+                        </p>
+                        <p>Repositories: {repos.length}</p>
+                        <p>Favorites Repositories: </p>
+                        <Modal />
+                    </div>
+                </footer>
+            )}
 
-                </div>
-            </footer>
         </div>
     )
 }

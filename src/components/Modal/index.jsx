@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 
-export function Modal() {
+export function Modal({ fav }) {
     return (
-        <Fragment>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                My favorites repositories
-            </button>
+        <div>
+            <a type="button" className="" data-toggle="modal" data-target="#exampleModal">
+                View favorites repositories
+            </a>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -17,15 +17,15 @@ export function Modal() {
                             </button>
                         </div>
                         <div className="modal-body">
-                        <p className="text-right"> <a href="#" role="button" className="btn btn-danger popover-test text-right" title="Remove of favorites" data-content="Popover body content is set in this attribute."><i className="fa-solid fa-trash-can"></i></a></p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary"><i className="fa-solid fa-floppy-disk"></i>  Save</button>
+                            <span>{fav}</span><p className="text-right"> <a href="#" role="button" className="btn btn-danger popover-test text-right" title="Remove of favorites"><i className="fa-solid fa-trash-can"></i></a></p>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary"><i className="fa-solid fa-floppy-disk"></i>  Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </Fragment >
     )
 }

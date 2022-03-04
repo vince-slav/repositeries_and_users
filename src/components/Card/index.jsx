@@ -1,11 +1,20 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './style.css';
 
 export function Card({ repo }) {
 
     const [favRepos, setFavRepos] = useState([]);
-    
+    const chechFav = useRef();
+
+    function handleFav() {
+
+        for (var i = 0; i < chechFav.length; i++) {
+            if (chechFav[i].checked == true) {
+                setFavRepos(repo)
+            } 
+        }
+    }
 
     return (
         <div>
@@ -15,16 +24,17 @@ export function Card({ repo }) {
                         Repository informations
                     </div>
                     <div className="card-body">
-                        <p className="card-text">Title: {repo.name}</p>
-                        <p className="card-text">stars:</p>
-                        <p className="card-text">forks:</p>
-                        <p className="card-text">description:</p>
-                    </div>
-                    <div className="card-footer text-left">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Mark as favorite
-                        </label>
+                        <p className="card-text"><span className='text-primary font-weight-bold'>Title:</span> {repo.name}</p>
+                        <p className="card-text"><span className='text-primary font-weight-bold'>stars:</span> {repo.stargazers_count}</p>
+                        <p className="card-text"><span className='text-primary font-weight-bold'>forks:</span> {repo.forks_count}</p>
+                        <p className="card-text"><span className='text-primary font-weight-bold'>description:</span> {repo.description}</p>
+                        <hr />
+                        <p className='mx-auto'>
+                            <input className="form-check-input" ref={chechFav} onChange={handleFav} type="checkbox" value="" id="flexCheckDefault" />
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Mark as favorite
+                            </label>
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Modal } from '../Modal';
-
 
 export function Header() {
     return (
@@ -11,7 +9,6 @@ export function Header() {
                         <a href="#" className="navbar-brand d-flex align-items-center">
                             <strong>Test Thalles</strong>
                         </a>
-                        <Modal/>
                     </div>
                 </div>
             </header>
